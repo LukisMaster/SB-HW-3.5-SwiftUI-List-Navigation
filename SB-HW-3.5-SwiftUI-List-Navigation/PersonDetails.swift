@@ -14,18 +14,18 @@ struct PersonDetails: View {
         
         VStack(alignment: .leading, spacing: 10) {
             
-            List{
+            Form{
                 HStack {
                     Spacer()
                     Image(systemName: "person.fill")
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 150, height: 150)
                     Spacer()
                 }
                 Label(person.email, systemImage: "tray")
                 Label(person.phone, systemImage: "phone")
             }
-            .navigationTitle(person.fullName)
+            .navigationBarTitle(person.fullName)
 
         }
     }
@@ -33,6 +33,6 @@ struct PersonDetails: View {
 
 struct PersonDetails_Previews: PreviewProvider {
     static var previews: some View {
-        PersonDetails(person: DataManager.shared.persons.first!)
+        PersonDetails(person: Person.randomPersons().first!)
     }
 }

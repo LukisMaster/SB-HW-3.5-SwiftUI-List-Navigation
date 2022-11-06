@@ -8,22 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    let persons = Person.randomPersons()
     var body: some View {
         
-        NavigationView{
-            TabView {
-                ContactList(boardName: "Contact List")
-                    .tabItem{
-                        Label("Contacts", systemImage: "person.3")
-                    }
-                NumbersList(boardName: "Contact List")
-                    .tabItem {
-                        Label("Numbers", systemImage: "phone")
-                    }
-            }
+        TabView {
+            ContactList(persons: persons)
+                .tabItem{
+                    Label("Contacts", systemImage: "person.3")
+                }
+            NumbersList(persons: persons)
+                .tabItem {
+                    Label("Numbers", systemImage: "phone")
+                }
         }
-  
+        
     }
 }
 

@@ -15,11 +15,12 @@ struct PersonSection: View {
             Text(person.phone)
             Text(person.email)
         }
+        .textCase(.none)
     }
 }
 
 struct PersonSection_Previews: PreviewProvider {
     static var previews: some View {
-        PersonSection(person: DataManager.shared.persons.first!)
+        PersonSection(person: Person.randomPersons().first!)
     }
 }

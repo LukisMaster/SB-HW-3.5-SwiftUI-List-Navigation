@@ -17,6 +17,6 @@ struct FullNameRow: View {
 
 struct FullNameRow_Previews: PreviewProvider {
     static var previews: some View {
-        FullNameRow(person: DataManager.shared.persons.first!)
+        FullNameRow(person: Person.randomPersons().first!)
     }
 }

@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct NumbersList: View {
-    private let persons = DataManager.shared.persons
-    
-    let boardName : String
+    let persons : [Person]
     
     var body: some View {
-        List(persons, id: \.email) {person in
-            PersonSection(person: person)
+        NavigationView {
+            
+            List(persons, id: \.email) {person in
+                PersonSection(person: person)
+            }
+            .navigationBarTitle("Contact List")
+            
         }
-        .navigationTitle(boardName)
     }
 }
 
 struct NumbersList_Previews: PreviewProvider {
     static var previews: some View {
-        NumbersList(boardName: "Contact List")
+        NumbersList(persons: Person.randomPersons())
     }
 }
